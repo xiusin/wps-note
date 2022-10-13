@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import Vditor from 'vditor';
 import { Article } from './article';
 import { DialogService } from 'ng-devui/modal';
+import { HttpClient } from '@angular/common/http';
+import { LoadingService } from 'ng-devui/loading';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,9 +25,16 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  constructor(private dialogService: DialogService) { }
+  constructor(
+    private dialogService: DialogService,
+    public http: HttpClient,
+    private loadingService: LoadingService,
+    @Inject(DOCUMENT) private doc: any
+  ) { }
 
   ngOnInit(): void {
+    const results = this.loadingService.open();
+
     this.items = JSON.parse(window.localStorage.getItem('notes')!);
     this.items = this.items || [];
 
@@ -45,7 +54,11 @@ export class AppComponent implements OnInit {
       cache: { enable: false }
     });
 
-    setInterval(this.syncToLS, 2000);
+    results.loadingInstance.close();
+
+    setInterval(() => {
+      this.syncToLS()
+    }, 2000);
   }
 
   addArticle() {
@@ -78,12 +91,16 @@ export class AppComponent implements OnInit {
           text: '删除',
           disabled: false,
           handler: ($event: Event) => {
+            const loading = this.loadingService.open();
+
             this.items.splice(this.editItemIndex, 1); // 移除当前元素
             this.syncToLS();
             this.vditor.setValue('')
             this.tagList = [];
             this.editItemIndex = -1
             results.modalInstance.hide();
+
+            loading.loadingInstance.close();
           },
         },
         {
@@ -108,7 +125,6 @@ export class AppComponent implements OnInit {
     if (this.editItemIndex > -1) {
       this.items[this.editItemIndex].content = this.vditor.getValue().trim();
       this.items[this.editItemIndex].title = this.items[this.editItemIndex].content.substring(0, 20) || '无标题';
-      console.log(this.tagList);
       this.items[this.editItemIndex].tags = this.tagList;
     }
   }

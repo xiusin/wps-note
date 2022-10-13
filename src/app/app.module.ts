@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
+
 // DevUI部分组件依赖angular动画，需要引入animations模块
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -20,7 +22,8 @@ import { FormsModule } from '@angular/forms';// 不导入则无法使用ngModel�
     IconModule,
     ButtonModule,
     TagsInputModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
 })

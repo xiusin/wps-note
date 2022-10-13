@@ -30,7 +30,7 @@
           <d-card (click)="selectArticle(i)" [class]="i === editItemIndex ? 'active' : ''">
             <d-card-header>
               <!-- <d-avatar dCardAvatar [name]="'DevUI'"></d-avatar> -->
-              <d-card-subtitle>{{ item.title }}</d-card-subtitle>
+              <d-card-subtitle> <b>{{ item.title }}</b> </d-card-subtitle>
             </d-card-header>
             <d-card-actions [align]="'start'">
               <div class="action-text">{{ item.time }}</div>
