@@ -28,6 +28,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ng-devui/devui.min.css",
+              "node_modules/@devui-design/icons/icomoon/devui-icon.css",
+              "node_modules/vditor/src/assets/less/index.less",
               "src/styles.scss"
             ],
             "scripts": []
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
