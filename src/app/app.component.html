@@ -13,7 +13,9 @@
     </d-aside>
     <d-aside class="art-list">
       <div class="list-header">
-        <h2>便签</h2>
+        <h2>便签
+          <d-icon icon="icon-helping" dTooltip [content]="'数据无服务端,仅存放到本地存储.'" [position]="'right'"></d-icon>
+        </h2>
         <d-button bsStyle="common" icon="icon-modify" (click)="addArticle()">新建</d-button>
       </div>
 
@@ -47,7 +49,9 @@
         </div>
       </div>
       <d-content>
-        <div id="vditor"></div>
+        <div style="width: 800px; margin: 0 auto;font-weight: 300;">
+          <div id="vditor"></div>
+        </div>
       </d-content>
       <d-footer>
         <d-tags-input (click)="$event.stopPropagation()" [(ngModel)]="tagList" [caseSensitivity]="false"

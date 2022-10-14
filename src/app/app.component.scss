@@ -1,4 +1,4 @@
-@import '~ng-devui/styles-var/devui-var.scss';
+@import 'ng-devui/styles-var/devui-var.scss';
 
 .layout {
   height: 100%;
@@ -24,7 +24,7 @@
 
 .art-list {
   border-right: 1px solid #ebebeb;
-  width: 335px;
+  width: 280px;
   height: 100%;
   display: block;
   color: #464646;
@@ -71,6 +71,14 @@
     overflow-y: auto;
 
     .devui-card {
+      b {
+        font-weight: 300;
+      }
+
+      .action-text {
+        font-weight: 300;
+      }
+
       border-radius: 0px;
       box-shadow: none;
       border-bottom: 1px solid #ebebeb;
@@ -107,6 +115,26 @@ d-aside {
   width: calc(100% - 500px);
   overflow: hidden;
 
+  .vditor {
+    border-radius: 0;
+    border: none;
+  }
+
+  ::ng-deep .vditor-toolbar {
+    background-color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  ::ng-deep .vditor-reset {
+    font-family: monospace;
+  }
+
+  ::ng-deep .vditor-ir pre.vditor-reset:focus {
+    background-color: #fff;
+  }
+
   .content-tip {
     background-color: #fff;
     position: absolute;
@@ -126,6 +154,12 @@ d-aside {
     text-align: left;
     color: $devui-light-text;
     background-color: $devui-base-bg-dark;
+
+    ::ng-deep .devui-toggle-menu-container {
+      border: none;
+      border-radius: 0;
+      border-top: 1px solid #ebebeb;
+    }
 
     ::ng-deep d-toggle-menu-label {
       float: left;

@@ -51,7 +51,8 @@ export class AppComponent implements OnInit {
       height: '100%',
       toolbarConfig: { pin: true },
       toolbar: this.toolbars,
-      cache: { enable: false }
+      cache: { enable: false },
+      placeholder: '请输入此刻的想法...'
     });
 
     results.loadingInstance.close();
