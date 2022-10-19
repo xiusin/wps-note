@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
 
     this.vditor = new Vditor('vditor', {
       height: '100%',
+      minHeight: 500, // TODO 自动计算填充高度
       toolbarConfig: { pin: true },
       toolbar: this.toolbars,
       cache: { enable: false },
