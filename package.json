@@ -1,8 +1,11 @@
 {
-  "name": "new-project",
+  "name": "note",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
+    "tauri": "tauri",
+    "dev": "ng serve --port 4200",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -29,6 +32,7 @@
     "@angular-devkit/build-angular": "^14.2.5",
     "@angular/cli": "~14.2.5",
     "@angular/compiler-cli": "^14.2.0",
+    "@tauri-apps/cli": "^1.1.1",
     "@types/jasmine": "~4.0.0",
     "@types/lodash-es": "^4.17.6",
     "jasmine-core": "~4.3.0",
