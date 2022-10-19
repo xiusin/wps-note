@@ -4,7 +4,7 @@
     "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:4200",
-    "distDir": "../dist",
+    "distDir": "dist",
     "withGlobalTauri": true
   },
   "package": {
@@ -13,15 +13,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true,
-      "http": {
-        "all": true,
-        "request": true,
-        "scope": [
-          "https://**",
-          "http://**"
-        ]
-      }
+      "all": true
     },
     "bundle": {
       "active": true,
