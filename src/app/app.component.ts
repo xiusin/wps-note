@@ -49,9 +49,10 @@ export class AppComponent implements OnInit {
 
     this.vditor = new Vditor('vditor', {
       height: '100%',
-      minHeight: 500, // TODO 自动计算填充高度
+      minHeight: 500,
       toolbarConfig: { pin: true },
       toolbar: this.toolbars,
+      counter: { enable: true },
       cache: { enable: false },
       placeholder: '请输入此刻的想法...'
     });
@@ -60,7 +61,7 @@ export class AppComponent implements OnInit {
 
     setInterval(() => {
       this.syncToLS()
-    }, 2000);
+    }, 1000);
   }
 
   addArticle() {
@@ -82,11 +83,6 @@ export class AppComponent implements OnInit {
       title: '确定删除?',
       content: "确定删除该便签吗？删除后可在回收站内恢复",
       backdropCloseable: true,
-      data: {
-        name: 'Tom',
-        age: 10,
-        address: 'Chengdu',
-      },
       buttons: [
         {
           cssClass: 'danger',
@@ -94,14 +90,12 @@ export class AppComponent implements OnInit {
           disabled: false,
           handler: ($event: Event) => {
             const loading = this.loadingService.open();
-
             this.items.splice(this.editItemIndex, 1); // 移除当前元素
             this.syncToLS();
             this.vditor.setValue('')
             this.tagList = [];
             this.editItemIndex = -1
             results.modalInstance.hide();
-
             loading.loadingInstance.close();
           },
         },
@@ -147,7 +141,5 @@ export class AppComponent implements OnInit {
   }
 
   getTagValue(value: any) {
-    console.log(this.tagList);
-    console.log(value);
   }
 }

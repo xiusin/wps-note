@@ -15,6 +15,7 @@
     "allowlist": {
       "all": true
     },
+    "macOSPrivateApi": true,
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -60,7 +61,9 @@
         "height": 600,
         "resizable": false,
         "title": "便签",
-        "width": 1100
+        "width": 1100,
+        "decorations": true,
+        "transparent": false
       }
     ]
   }

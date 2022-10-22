@@ -17,9 +17,23 @@
 
 .btn-menu {
   display: block;
-  width: 200px;
+  width: 120px;
   border-right: 1px solid #fafafa;
   background: #fafafa;
+
+  d-button {
+    button ::ng-deep {
+      border-radius: 10px;
+    }
+  }
+
+  ::ng-deep .devui-btn.devui-btn-common {
+    border-radius: 30px;
+    height: 26px;
+    width: 100px;
+    border: none;
+    box-shadow: 0 1px 3px 0 #d7dae0;
+  }
 }
 
 .art-list {
@@ -52,7 +66,6 @@
     width: 70px;
     border: none;
     box-shadow: 0 1px 3px 0 #d7dae0;
-
   }
 
   ::ng-deep .devui-btn.devui-btn-common:hover {
